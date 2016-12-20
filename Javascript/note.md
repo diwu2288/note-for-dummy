@@ -2,11 +2,11 @@
 
 `var jsObj = JSON.parse(jsonObj);`
 
-**Get the number of items under a \<ul\> element
+**Get the number of items under a \<ul\> element**
 
 `("#id_of_ul").children.length`
 
-**To convert part of the object array to a new array
+**To convert part of the object array to a new array**
 ```
 var countryLang = [
   {country: 'se', lang: 'sv'},
