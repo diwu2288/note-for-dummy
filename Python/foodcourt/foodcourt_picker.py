@@ -13,7 +13,7 @@ food_count = [
 ]
 
 
-def find_places(week_num_total, num_to_select):
+def find_places(week_num_total, num_to_repick):
     print('='*20)
     print('START')
     week = {}
@@ -31,8 +31,8 @@ def find_places(week_num_total, num_to_select):
 
         tmp_1 = sorted(list(week_last-week_before_last))
         tmp_2 = sorted(list(week_before_last-week_last))
-        choose_1 = tmp_1[:num_to_select]
-        choose_2 = tmp_2[:(5-num_to_select)]
+        choose_1 = tmp_1[:num_to_repick]
+        choose_2 = tmp_2[:(5-num_to_repick)]
 
         print(
             'We choose them from last week: \t\t\t %s' % (choose_1)
@@ -60,7 +60,7 @@ def find_places(week_num_total, num_to_select):
     print('END')
     return week, places
 
-week, places = find_places(week_num_total=10, num_to_select=2)
+week, places = find_places(week_num_total=10, num_to_repick=2)
 random_choose = True
 if random_choose:
     random.shuffle(food_count)
@@ -76,10 +76,10 @@ for w, ids in week.items():
     new_list = list({k: food_count_mapping[k] for k in ids}.items())
     if random_choose:
         random.shuffle(new_list)
-    format_mon = ' - Monday: \t%s (%s) \n' % (new_list[0][1], new_list[0][0])
-    format_tue = ' - Tuesday: \t%s (%s) \n' % (new_list[1][1], new_list[1][0])
-    format_Wedn = ' - Wednsday: \t%s (%s) \n' % (new_list[2][1], new_list[2][0])
-    format_thu = ' - Thursday: \t%s (%s) \n' % (new_list[3][1], new_list[3][0])
-    format_fri = ' - Friday: \t%s (%s) \n' % (new_list[4][1], new_list[4][0])
-    format_Week = format_mon + format_tue + format_Wedn + format_thu + format_fri
-    print('Week %s:\n%s' % (w, format_Week))
+    format_mon = ' - Monday: \t%s (%s)\n' % (new_list[0][1], new_list[0][0])
+    format_tue = ' - Tuesday: \t%s (%s)\n' % (new_list[1][1], new_list[1][0])
+    format_wed = ' - Wednesday: \t%s (%s)\n' % (new_list[2][1], new_list[2][0])
+    format_thu = ' - Thursday: \t%s (%s)\n' % (new_list[3][1], new_list[3][0])
+    format_fri = ' - Friday: \t%s (%s)\n' % (new_list[4][1], new_list[4][0])
+    format_wk = format_mon + format_tue + format_wed + format_thu + format_fri
+    print('Week %s:\n%s' % (w, format_wk))
